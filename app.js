@@ -1,5 +1,6 @@
 const output = document.getElementById('output')
 const surah = document.getElementById('surah')
+const audio = document.getElementById('audio')
 const getSurah = document.getElementById('get-surah')
 getSurah.addEventListener('click',() => {
   const surahNumber = surah.value
@@ -26,6 +27,8 @@ async function getSura(number) {
    const verses = API_Output.data.verses
   verses.forEach(verse => {
     output.innerText += `${verse.text.arab}.`
+    audio.src = verse.audio.primary
       });
+      
  }
 
